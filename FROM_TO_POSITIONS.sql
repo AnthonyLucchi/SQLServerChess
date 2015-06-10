@@ -1,5 +1,3 @@
---select * from board
-
 /* All possible movement position*/
 Create View ALLMOVES
 as
