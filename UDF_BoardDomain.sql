@@ -1,3 +1,4 @@
+/* Check to ensure the board isn't outside a 8 x 8 grid.*/
 IF OBJECT_ID(N'dbo.UDF_BoardConstraint', N'IF') IS NOT NULL
 DROP FUNCTION dbo.UDF_BoardConstraint;
 
