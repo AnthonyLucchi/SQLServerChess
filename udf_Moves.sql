@@ -8,15 +8,16 @@ RETURNS TABLE
 AS
 RETURN
 (
-SELECT Position.STX as ToX, Position.STY as ToY FROM BOARD
+SELECT Position.STX as ToX, Position.STY as ToY FROM Chess.dbo.BOARD
 WHERE (Position.STX = @CurrentPosition.STX AND NOT Position.STY = @CurrentPosition.STY)
 OR (Position.STY = @CurrentPosition.STY AND NOT Position.STX = @CurrentPosition.STX)
 )
 
+
+
 /*
 TESTING ROOK MOVES
 This should return all places with that x column, all places with that y column.
-This should exclude the current position*/
-Declare @Point Geometry
-SET @Point = geometry::STPointFromText('POINT (1 8)', 0);
-SELECT * FROM udf_Rook_Moves(@Point)
+This should exclude the current position
+SELECT * FROM udf_Rook_Moves(geometry::STPointFromText('POINT (1 8)', 0))
+*/
